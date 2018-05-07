@@ -1,0 +1,12 @@
+<ul>
+  <% @page.common_prefixes.each do |resource| %>
+    <li><%= link_to resource.prefix, s3_objects_path(path: resource.prefix) %></li>
+  <% end %>
+</ul>
+<ul>
+  <% @page.contents.each do |resource| %>
+    <% if resource.key != params[:path] %>
+      <li><%= resource.key %></li>
+    <% end %>
+  <% end %>
+</ul>
